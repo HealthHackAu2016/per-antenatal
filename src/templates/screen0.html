@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Antenatal</title>
+    {{> assets}}
+  </head>
+  <body>
+    <h1 class="text-center">Create your referral</h1>
+    <div class="container">
+    <p class="text-center">
+        Explanation of this page...
+    </p>
+        <form id="form0" method="post">
+            <div class="form-group">
+                <label for="doc_name">Name of Doctor:</label>
+                <input type="text" name="doc_name" class="form-control" value="{{doc_name}}"/>
+            </div>
+            <div class="form-group">
+                <label for="practice_name">Practice Name:</label>
+                <input type="text" name="practice_name" class="form-control" value="{{practice_name}}"/>
+            </div>
+            <div class="form-group">
+                <label for="referral_date">Referral Date:</label>
+                <input type="text" name="referral_date" class="form-control" value="{{referral_date}}"/>
+            </div>
+            <div class="form-group">
+                <label for="provider_num">Provider Number:</label>
+                <input type="text" name="provider_num" class="form-control" value="{{provider_num}}"/>
+            </div>
+            <div class="form-group">
+                <label for="preferred_care">Preferred Model of Care:</label>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="preferred_care" value="gp">GP Own</input>
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="preferred_care" value="private">Private</input>
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="preferred_care" value="public">Public</input>
+                    </label>
+                    <span class="hidden"></span>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="preferred_care" value="midwife_group">Midwife group practice</input>
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="preferred_care" value="midwife_community">Community midwifery program</input>
+                    </label>
+                </div>
+            </div>
+            <button id="submit_screen0" type="submit" class="btn btn-primary pull-right">Next</button>
+        </form>
+    </div>
+  </body>
+  <script>
+    // document.onload = function() {
+    //     $('#submit_screen0').click(function(e) {
+    //         e.preventDefault();
+    //         console.log($('#form0').serializeArray());
+    //         console.log(JSON.stringify($('#form0').serializeArray()));
+    //         $.ajax('http://localhost:3000/page-0',
+    //         {
+    //             'data': JSON.stringify($('#form0').serializeArray()),
+    //             'processData': false,
+    //             'type': 'POST'
+    //         })
+    //     });
+    // };
+  </script>
+</html>
