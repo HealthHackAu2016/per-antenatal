@@ -52,7 +52,7 @@
 				<div class="row">
 					<div class="form-group">
 						<label for="CountryOfBirth">Country Of Birth <span>*</span></label>
-						<select required class="form-control">
+						<select name="CountryOfBirth" required class="form-control">
 	<option value="4">Afghanistan</option>
 	<option value="248">Åland Islands</option>
 	<option value="8">Albania</option>
@@ -307,7 +307,7 @@
 
 					<div class="form-group">
 						<label for="Dateofbirth">Date of birth<span>*</span></label>
-						<input required type="date" class="form-control" id="Dateofbirth" placeholder="dd/mm/yyyy">
+						<input name="Dateofbirth" required type="date" class="form-control" id="Dateofbirth" placeholder="dd/mm/yyyy">
 					</div>
 				</div>
 
@@ -315,11 +315,11 @@
 				<div class=row>
 					<div class="form-group">
 						<label for="Address">Address<span>*</span></label>
-						<input required type="text" class="form-control" id="Address" placeholder="Address">
+						<input name="Address" required type="text" class="form-control" id="Address" placeholder="Address">
 					</div>
 					<div class="form-group">
 						<label for="Postcode">Postcode<span>*</span></label>
-						<input required type="text" class="form-control" id="Firstname" placeholder="Postcode">
+						<input name="Postcode"  required type="text" class="form-control" id="Firstname" placeholder="Postcode">
 					</div>
 				</div>
 
@@ -327,7 +327,7 @@
 				<div class=row>
 					<div class="form-group">
 						<label for="PhoneNumber">Phone Number:<span>*</span></label>
-						<input required type="text" class="form-control" id="PhoneNumber" placeholder="Number">
+						<input name="PhoneNumber" required type="text" class="form-control" id="PhoneNumber" placeholder="Number">
 					</div>
 
 				</div>
@@ -335,11 +335,11 @@
 				<div class=row>
 					<div class="form-group">
 						<label for="Medicare">Medicare<span>*</span></label>
-						<input required type="text" class="form-control" id="Medicare" placeholder="5674564">
+						<input   name="Medicare" required type="text" class="form-control" id="Medicare" placeholder="5674564">
 					</div>
 					<div class="form-group">
 						<label for="Expirydate">Expiry Date<span>*</span></label>
-						<input required type="date" class="form-control" id="Expirydate" placeholder="12/3/2018">
+						<input  name="Expirydate" required type="date" class="form-control" id="Expirydate" placeholder="12/3/2018">
 					</div>
 				</div>
 
@@ -347,7 +347,7 @@
 					<div class="form-group">
 						<label for="Interpreter">Interpreter</label>
 
-						<select class="form-control">
+						<select name="Interpreter"  class="form-control">
 	<option value="Yes">Yes</option>
 	<option value="No">No</option>
   	</select>
@@ -473,44 +473,7 @@
 </body>
  <script>
 
-	 var fs = require('fs'); // Load the File System to execute our common tasks (CRUD)
-
-
-  $.fn.serializeObject = function()
-{
-    var o = {};
-    var a = this.serializeArray();
-    $.each(a, function() {
-        if (o[this.name] !== undefined) {
-            if (!o[this.name].push) {
-                o[this.name] = [o[this.name]];
-            }
-            o[this.name].push(this.value || '');
-        } else {
-            o[this.name] = this.value || '';
-        }
-    });
-    return o;
-};
- 
-$(function() {
-    $('form').submit(function() {
-        //console.log(JSON.stringify($('form').serializeObject()));
-		//TODO validation
-		var fileName = "screen_one"; //TODO folder 
-		var content = JSON.stringify($('form').serializeObject());
-		 fs.writeFile(fileName, content, function (err) {
-			 
-           if(err){
-               alert("An error ocurred creating the file "+ err.message)
-           }
-                        
-           alert("The file has been succesfully saved");
-       });
-
-        return false;
-    });
-});
+	require('./persistance.js')
 
     </script>
  
