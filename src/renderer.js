@@ -3,7 +3,7 @@
 // All of the Node.js APIs are available in this process.
 
 const jquery = require('jQuery');
-const blobStream = require('blob-stream');
+//const blobStream = require('blob-stream');
 const merge = require('easy-pdf-merge');
 const fs = require('fs');
 const htmlToPdf = require('html-to-pdf');
@@ -15,7 +15,7 @@ jquery('.make_pdf').on('click', function() {
 
 
 
-var html = '<p>Hi <b style="color: red;"> there </b> </p> <p> test </p>'
+var html = '<p>Hi <b style="color: red;"> there </b> </p> <p> test2 </p> <form><input value="dd" type="text" /></form>'
 
 //conversion
  htmlToPdf.convertHTMLString(html, '/Users/schauhan/Downloads/bloodtest.pdf',

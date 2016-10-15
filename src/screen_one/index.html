@@ -5,10 +5,13 @@
     <style>
         .row{
             margin: 10px;
+            padding: 10px;
         }
 
-        .row{
-            padding: 10px;
+       :required .control-label:after { 
+   content:"*";
+   color:red;
+   
         }
     </style>
 	<meta charset="utf-8">
@@ -25,10 +28,12 @@
 
 	<!-- Custom Scripts -->
 
+    <script src="../../bower_components/jquery-1.9.1/index.js"></script>
+    <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
 <body>
     <div class="container">
-	<form class="form-inline">
+	<form class="form-inline" id="screen-one" action="" method="post">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
 				<h3 class="panel-title">Patient Bio Data</h3>
@@ -36,18 +41,18 @@
 			<div class="panel-body">
 				<div class=row>
 					<div class="form-group">
-						<label for="Surname">Surname</label>
-						<input type="text" class="form-control" id="Surname" placeholder="Jane">
+						<label for="Surname">Surname <span>*</span></label>
+						<input name="Surname" value="test" required type="text" class="form-control" id="Surname" placeholder="Jane">
 					</div>
 					<div class="form-group">
-						<label for="Firstname">Fist name</label>
-						<input type="text" class="form-control" id="Firstname" placeholder="Doe">
+						<label for="Firstname">Fist name <span>*</span></label>
+						<input name="Firstname"  required type="text" class="form-control" id="Firstname" placeholder="Doe" >
 					</div>
 				</div>
 				<div class="row">
 					<div class="form-group">
-						<label for="CountryOfBirth">Country Of Birth</label>
-						<select class="form-control">
+						<label for="CountryOfBirth">Country Of Birth <span>*</span></label>
+						<select required class="form-control">
 	<option value="4">Afghanistan</option>
 	<option value="248">Åland Islands</option>
 	<option value="8">Albania</option>
@@ -301,40 +306,40 @@
 					</div>
 
 					<div class="form-group">
-						<label for="Dateofbirth">Date of birth</label>
-						<input type="date" class="form-control" id="Dateofbirth" placeholder="dd/mm/yyyy">
+						<label for="Dateofbirth">Date of birth<span>*</span></label>
+						<input required type="date" class="form-control" id="Dateofbirth" placeholder="dd/mm/yyyy">
 					</div>
 				</div>
 
 
 				<div class=row>
 					<div class="form-group">
-						<label for="Address">Address</label>
-						<input type="text" class="form-control" id="Address" placeholder="Address">
+						<label for="Address">Address<span>*</span></label>
+						<input required type="text" class="form-control" id="Address" placeholder="Address">
 					</div>
 					<div class="form-group">
-						<label for="Postcode">Postcode</label>
-						<input type="text" class="form-control" id="Firstname" placeholder="Postcode">
+						<label for="Postcode">Postcode<span>*</span></label>
+						<input required type="text" class="form-control" id="Firstname" placeholder="Postcode">
 					</div>
 				</div>
 
 
 				<div class=row>
 					<div class="form-group">
-						<label for="PhoneNumber">Phone Number:</label>
-						<input type="text" class="form-control" id="PhoneNumber" placeholder="Number">
+						<label for="PhoneNumber">Phone Number:<span>*</span></label>
+						<input required type="text" class="form-control" id="PhoneNumber" placeholder="Number">
 					</div>
 
 				</div>
 
 				<div class=row>
 					<div class="form-group">
-						<label for="Medicare">Medicare</label>
-						<input type="text" class="form-control" id="Medicare" placeholder="5674564">
+						<label for="Medicare">Medicare<span>*</span></label>
+						<input required type="text" class="form-control" id="Medicare" placeholder="5674564">
 					</div>
 					<div class="form-group">
-						<label for="Expirydate">Expiry Date</label>
-						<input type="date" class="form-control" id="Expirydate" placeholder="12/3/2018">
+						<label for="Expirydate">Expiry Date<span>*</span></label>
+						<input required type="date" class="form-control" id="Expirydate" placeholder="12/3/2018">
 					</div>
 				</div>
 
@@ -353,7 +358,7 @@
 					<div class="form-group">
 						<label for="Language">Language</label>
 
-                <select class="form-control">
+                <select name="Language" class="form-control">
     <option value=af>Afrikaans</option>
     <option value=sq>Albanian</option>
     <option value=am>Amharic</option>
@@ -459,18 +464,38 @@
     <option value=zu>Zulu</option>
     </select>
     	</div>
-				</div>
-
-				<button type="submit" class="btn btn-default">Next</button>
-
+				</div>		
+				        <input type="submit"  class="btn btn-default pull-right" />
 			</div>
 		</div>
-
-
-
-
 	</form>
     </div>
 </body>
+ <script>
+  $.fn.serializeObject = function()
+{
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
+ 
+$(function() {
+    $('form').submit(function() {
+        console.log(JSON.stringify($('form').serializeObject()));
+        return false;
+    });
+});
 
+    </script>
+ 
 </html>
