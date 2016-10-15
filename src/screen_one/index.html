@@ -2,18 +2,16 @@
 <html lang="en">
 
 <head>
-    <style>
-        .row{
-          
-            padding: 8px;
-        }
-
-       :required .control-label:after { 
-   content:"*";
-   color:red;
-   
-        }
-    </style>
+	<style>
+		.row {
+			padding: 8px;
+		}
+		
+		:required .control-label:after {
+			content: "*";
+			color: red;
+		}
+	</style>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,37 +20,82 @@
 	<!-- STYLES -->
 	<!-- build:css lib/css/main.min.css -->
 	<!--<link rel="stylesheet" type="text/css" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">-->
-<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../assets/wizard.css">
 	<!-- endbuild -->
 	<!-- SCRIPTS -->
 
 	<!-- Custom Scripts -->
 
-    <!--<script src="../../bower_components/jquery-1.9.1/index.js"></script>
+	<!--<script src="../../bower_components/jquery-1.9.1/index.js"></script>
     <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>-->
 </head>
+
 <body>
-    <div class="container">
-	<form class="form-inline" id="screen-one" action="" method="post">
-		<div class="panel-group panel-primary">
-			<div class="panel-heading">
-				<h3 class="panel-title">Patient Bio Data</h3>
-			</div>
-			<div class="panel-body">
-				<div class=row>
-					<div class="form-group col-sm-6">
-						<label class="text-right col-sm-4" for="Surname">Surname <span>*</span></label>
-						<input class="col-sm-6 form-control" name="Surname" value="test" required type="text"  id="Surname" placeholder="Jane">
+	<div class="container">
+		<div class="row">
+			<section>
+				<div class="wizard">
+					<div class="wizard-inner">
+						<div class="connecting-line"></div>
+						<ul class="nav nav-tabs" role="tablist">
+
+							<li role="presentation" class="active">
+								<a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
+									<span class="round-tab">
+                                <i class="glyphicon glyphicon-folder-open"></i>
+                            </span>
+								</a>
+							</li>
+
+							<li role="presentation" class="disabled">
+								<a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
+									<span class="round-tab">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                            </span>
+								</a>
+							</li>
+							<li role="presentation" class="disabled">
+								<a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
+									<span class="round-tab">
+                                <i class="glyphicon glyphicon-picture"></i>
+                            </span>
+								</a>
+							</li>
+
+							<li role="presentation" class="disabled">
+								<a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+									<span class="round-tab">
+                                <i class="glyphicon glyphicon-ok"></i>
+                            </span>
+								</a>
+							</li>
+						</ul>
 					</div>
-					<div class="form-group col-sm-4">
-						<label class="col-sm-5 text-right" for="Firstname">Fist name <span>*</span></label>
-						<input class="col-sm-6 form-control" name="Firstname"  required type="text"  id="Firstname" placeholder="Doe" >
-					</div>
-				</div>
-				<div class="row">
-					<div class="form-group col-sm-6">
-						<label class="text-right col-sm-4" for="CountryOfBirth">Country Of Birth <span>*</span></label>
-						<select class="col-sm-5 form-control" name="CountryOfBirth" required >
+
+					<form class="form-inline" id="screen-one" action="" method="post" role="form">
+						<div class="tab-content">
+							<div class="tab-pane active" role="tabpanel" id="step1">
+								<h3>Patient Bio Data</h3>
+								<p>Patient Bio Data</p>
+								<ul class="list-inline pull-right">
+									<li><input type="submit" class="btn btn-primary next-step" value="Save and continue" /></li>
+								</ul>
+								<div class="clearfix"></div>
+								<div class=row>
+									<div class="form-group col-sm-6">
+										<label class="text-right col-sm-4" for="Surname">Surname<span>*</span></label>
+										<input class="col-sm-6 form-control" name="Surname"  required type="text" id="Surname" placeholder="Jane">
+									</div>
+									<div class="form-group col-sm-4">
+										<label class="col-sm-5 text-right" for="Firstname">Fist name<span>*</span></label>
+										<input class="col-sm-6 form-control" name="Firstname" required type="text" id="Firstname" placeholder="Doe">
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group col-sm-6">
+										<label class="text-right col-sm-4" for="CountryOfBirth">Country Of Birth<span>*</span></label>
+										<select class="col-sm-5 form-control" name="CountryOfBirth" required>
   <option selected value="" disabled>Choose here</option>
 	<option value="4">Afghanistan</option>
 	<option value="248">Åland Islands</option>
@@ -304,69 +347,69 @@
 	<option value="894">Zambia</option>
 	<option value="716">Zimbabwe</option>
 </select>
-					</div>
+									</div>
 
-					<div class="form-group col-sm-4">
-						<label class="text-right col-sm-5" for="Dateofbirth">Date of birth<span>*</span></label>
-						<input name="Dateofbirth" required type="date" class="col-sm-4 form-control" id="Dateofbirth" placeholder="dd/mm/yyyy">
-					</div>
-				</div>
+									<div class="form-group col-sm-4">
+										<label class="text-right col-sm-5" for="Dateofbirth">Date of birth<span>*</span></label>
+										<input name="Dateofbirth" required type="date" class="col-sm-4 form-control" id="Dateofbirth" placeholder="dd/mm/yyyy">
+									</div>
+								</div>
 
 
-				<div class=row>
-					<div class="form-group col-sm-6">
-						<label  class="col-sm-4 text-right" for="Address">Address<span>*</span></label>
-						<input  class="col-sm-4 form-control" name="Address" required type="text"  id="Address" placeholder="Address">
-					</div>
-					<div class="form-group col-sm-4">
-						<label class="col-sm-5 text-right"  for="Postcode">Postcode<span>*</span></label>
-<select name="Postcode" id="Postcode" class="form-control col-sm-4" required>
+								<div class=row>
+									<div class="form-group col-sm-6">
+										<label class="col-sm-4 text-right" for="Address">Address<span>*</span></label>
+										<input class="col-sm-4 form-control" name="Address" required type="text" id="Address" placeholder="Address">
+									</div>
+									<div class="form-group col-sm-4">
+										<label class="col-sm-5 text-right" for="Postcode">Postcode<span>*</span></label>
+										<select name="Postcode" id="Postcode" class="form-control col-sm-4" required>
 	  <option selected value="" disabled>Choose here</option>
 	<option value="6112">6112</option>
 	<option value="6992">6992</option>
 	
   	</select>
-					</div>
-				</div>
+									</div>
+								</div>
 
 
-				<div class=row>
-					<div class="form-group col-sm-6">
-						<label  class=" text-right col-sm-4" for="PhoneNumber">Phone Number:<span>*</span></label>
-						<input  class="col-sm-6 form-control" name="PhoneNumber" required type="text"  id="PhoneNumber" placeholder="Number">
-					</div>
+								<div class=row>
+									<div class="form-group col-sm-6">
+										<label class=" text-right col-sm-4" for="PhoneNumber">Phone Number:<span>*</span></label>
+										<input class="col-sm-6 form-control" name="PhoneNumber" required type="text" id="PhoneNumber" placeholder="Number">
+									</div>
 
-				</div>
+								</div>
 
-				<div class=row>
-					<div class="form-group col-sm-6">
-						<label class="col-sm-4 text-right" for="Medicare">Medicare<span>*</span></label>
-						<input class="form-control col-sm-4"  name="Medicare" required type="text"  id="Medicare" placeholder="5674564">
-					</div>
-					<div class="form-group col-sm-4">
-						<label class="text-right col-sm-5" for="Expirydate">Expiry Date<span>*</span></label>
-						<input  name="Expirydate" required type="date" class="col-sm-4 form-control" id="Expirydate" placeholder="12/3/2018">
-					</div>
-				</div>
+								<div class=row>
+									<div class="form-group col-sm-6">
+										<label class="col-sm-4 text-right" for="Medicare">Medicare<span>*</span></label>
+										<input class="form-control col-sm-4" name="Medicare" required type="text" id="Medicare" placeholder="5674564">
+									</div>
+									<div class="form-group col-sm-4">
+										<label class="text-right col-sm-5" for="Expirydate">Expiry Date<span>*</span></label>
+										<input name="Expirydate" required type="date" class="col-sm-4 form-control" id="Expirydate" placeholder="12/3/2018">
+									</div>
+								</div>
 
-				<div class=row>
-					<div class="form-group col-sm-6">
-						<label class="col-sm-4 text-right" for="Interpreter">Interpreter</label>
+								<div class=row>
+									<div class="form-group col-sm-6">
+										<label class="col-sm-4 text-right" for="Interpreter">Interpreter</label>
 
-						<select name="Interpreter" id="Interpreter" class="col-sm-4 form-control">
+										<select name="Interpreter" id="Interpreter" class="col-sm-4 form-control">
 							  <option selected value="" disabled>Choose here</option>
 	<option value="No">No</option>
 	<option value="Yes">Yes</option>
 	
   	</select>
-					</div>
-				</div>
+									</div>
+								</div>
 
-<div id="LanguageRow" class="row ">
-					<div class="form-group col-sm-6">
-						<label class="col-sm-4 text-right" for="Language">Language</label>
+								<div id="LanguageRow" class="row ">
+									<div class="form-group col-sm-6">
+										<label class="col-sm-4 text-right" for="Language">Language</label>
 
-                <select name="Language" class="form-control col-sm-4">
+										<select name="Language" class="form-control col-sm-4">
 					 <option value="">none</option>
     <option value=af>Afrikaans</option>
     <option value=sq>Albanian</option>
@@ -472,15 +515,20 @@
     <option value=yo>Yoruba</option>
     <option value=zu>Zulu</option>
     </select>
-    	</div>
-				</div>		
-				        <input type="submit"  class="btn btn-success pull-right" />
-			</div>
+									</div>
+								</div>
+							</div>
+						</div>
+				</div>
 		</div>
-	</form>
-    </div>
+		</form>
+	</div>
+	</section>
+	</div>
+	</div>
+
 </body>
- <script>
+<script>
 
 	
 	var fs = require('fs'); // Load the File System to execute our common tasks (CRUD)
@@ -557,5 +605,5 @@ function validation(){
 	
 
     </script>
- 
+
 </html>
