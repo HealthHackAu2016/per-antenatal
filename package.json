@@ -1,0 +1,23 @@
+{
+  "name": "per-antenatal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "electron": "^1.4.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HealthHackAu2016/per-antenatal.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HealthHackAu2016/per-antenatal/issues"
+  },
+  "homepage": "https://github.com/HealthHackAu2016/per-antenatal#readme"
+}
