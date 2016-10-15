@@ -53,6 +53,7 @@
 					<div class="form-group">
 						<label for="CountryOfBirth">Country Of Birth <span>*</span></label>
 						<select name="CountryOfBirth" required class="form-control">
+  <option selected value="" disabled>Choose here</option>
 	<option value="4">Afghanistan</option>
 	<option value="248">Åland Islands</option>
 	<option value="8">Albania</option>
@@ -319,7 +320,12 @@
 					</div>
 					<div class="form-group">
 						<label for="Postcode">Postcode<span>*</span></label>
-						<input name="Postcode"  required type="text" class="form-control" id="Firstname" placeholder="Postcode">
+<select name="Postcode" id="Postcode" class="form-control" required>
+	  <option selected value="" disabled>Choose here</option>
+	<option value="6112">6112</option>
+	<option value="6992">6992</option>
+	
+  	</select>
 					</div>
 				</div>
 
@@ -347,18 +353,21 @@
 					<div class="form-group">
 						<label for="Interpreter">Interpreter</label>
 
-						<select name="Interpreter"  class="form-control">
-	<option value="Yes">Yes</option>
+						<select name="Interpreter" id="Interpreter" class="form-control">
+							  <option selected value="" disabled>Choose here</option>
 	<option value="No">No</option>
+	<option value="Yes">Yes</option>
+	
   	</select>
 					</div>
 				</div>
 
-<div class=row>
+<div id="LanguageRow" class=row>
 					<div class="form-group">
 						<label for="Language">Language</label>
 
                 <select name="Language" class="form-control">
+					 <option value="">none</option>
     <option value=af>Afrikaans</option>
     <option value=sq>Albanian</option>
     <option value=am>Amharic</option>
@@ -473,7 +482,75 @@
 </body>
  <script>
 
-	require('./persistance.js')
+	
+	var fs = require('fs'); // Load the File System to execute our common tasks (CRUD)
+
+$(function(){
+	 console.log( "ready!" );
+$('#LanguageRow').hide();
+
+	$('#Interpreter').change(function(){
+		$('#LanguageRow').hide();
+			if($('#Interpreter').val() === 'Yes' ){
+				$('#LanguageRow').show();
+			}
+	});
+
+
+
+  $.fn.serializeObject = function()
+{
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
+
+function save(){
+    var fileName = "screen_one"; //TODO folder 
+		var content = JSON.stringify($('form').serializeObject());
+		 fs.writeFile(fileName, content, function (err) {
+			 
+           if(err){
+               alert("An error ocurred creating the file "+ err.message)
+           }
+                        
+           alert("The file has been succesfully saved");
+       });
+}
+
+function validation(){
+ return true;
+}
+
+
+    $('form').submit(function() {
+        
+		if(!validation()){
+			
+			console.log('error');
+
+		}
+		console.log('save');
+		save();
+		
+        return false;
+    });
+
+
+});
+
+
+	
 
     </script>
  

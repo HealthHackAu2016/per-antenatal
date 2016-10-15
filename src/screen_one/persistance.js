@@ -17,12 +17,9 @@
     });
     return o;
 };
- 
-$(function() {
-    $('form').submit(function() {
-        //console.log(JSON.stringify($('form').serializeObject()));
-		//TODO validation
-		var fileName = "screen_one"; //TODO folder 
+
+function Save(){
+    var fileName = "screen_one"; //TODO folder 
 		var content = JSON.stringify($('form').serializeObject());
 		 fs.writeFile(fileName, content, function (err) {
 			 
@@ -32,7 +29,5 @@ $(function() {
                         
            alert("The file has been succesfully saved");
        });
+}
 
-        return false;
-    });
-});
