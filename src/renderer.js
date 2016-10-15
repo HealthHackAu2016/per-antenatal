@@ -3,11 +3,10 @@
 // All of the Node.js APIs are available in this process.
 
 const jquery = require('jQuery');
-const PDFDocument = require('pdfkit');
 const blobStream = require('blob-stream');
 const merge = require('easy-pdf-merge');
 const fs = require('fs');
-const convertFactory = require('electron-html-to');
+const htmlToPdf = require('html-to-pdf');
 
 //button
 jquery('.make_pdf').on('click', function() {
@@ -19,7 +18,6 @@ jquery('.make_pdf').on('click', function() {
 var html = '<p>Hi <b style="color: red;"> there </b> </p> <p> test </p>'
 
 //conversion
-const htmlToPdf = require('html-to-pdf');
  htmlToPdf.convertHTMLString(html, '/Users/schauhan/Downloads/bloodtest.pdf',
     function (error, success) {
         if (error) {
