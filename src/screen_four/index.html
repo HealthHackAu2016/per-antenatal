@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Antenatal IRS - Physical Information</title>
+    <title>Antenatal IRS - Antenatal Required Tests</title>
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/wizard.css">
   </head>
@@ -51,9 +51,10 @@
             </div>
             <form id="screen-two" action="" method="post" role="form">
               <div class="panel-group panel-primary">
-              <div class="panel-heading">Physical Information</div>
+              <div class="panel-heading">Antenatal Required Tests</div>
               <div class="panel-body">
-                <div class="well">This is used to calculate the patient's growth chart.</div>
+                <div class="well">If not available please provide reason.</div>
+                <h2>Ultrasound Tests</h2>
                 <div class="form-group">
                   <label for="height">Height:</label>
                   <div class="input-group">
@@ -190,13 +191,8 @@ $(function(){
     }
     console.log('save');
     save();
-
-    window.location = '../screen_three/index.html';
-    
-        return false;
-    });
-
-
+    return false;
+  });
 
 });
   </script>
