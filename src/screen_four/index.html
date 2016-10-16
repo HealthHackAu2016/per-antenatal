@@ -25,14 +25,14 @@
                   </a>
                 </li>
 
-                <li role="presentation" class="active">
+                <li role="presentation" class="disabled">
                   <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
                     <span class="round-tab">
                                   <i class="glyphicon glyphicon-pencil"></i>
                               </span>
                   </a>
                 </li>
-                <li role="presentation" class="disabled">
+                <li role="presentation" class="active">
                   <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
                     <span class="round-tab">
                                   <i class="glyphicon glyphicon-picture"></i>
@@ -54,65 +54,89 @@
               <div class="panel-heading">Antenatal Required Tests</div>
               <div class="panel-body">
                 <div class="well">If not available please provide reason.</div>
-                <h2>Ultrasound Tests</h2>
+                <h3>Ultrasound Tests</h3>
                 <div class="form-group">
-                  <label for="height">Height:</label>
-                  <div class="input-group">
-                    <input type="number" class="form-control" id="height" name="height" required>
-                    <span class="input-group-addon">cm</span>
-                  </div>
+                  <label for="dating-scan">Dating scan</label>
+                  <input type="file" class="form-control" id="dating-scan" name="dating-scan">
+                  <label for="dating-scan-reason">Reason</label>
+                  <input class="form-control" id="dating-scan-reason" name="dating-scan-reason">
                 </div>
                 <div class="form-group">
-                  <label for="weight">Pre-pregnancy Weight:</label>
-                  <div class="input-group">
-                    <input type="number" class="form-control" id="weight" name="weight" required>
-                    <span class="input-group-addon">kg</span>
-                  </div>
+                  <label for="first-trimester-screening">First trimester screening (11-14 weeks)</label>
+                  <input type="file" class="form-control" id="first-trimester-screening" name="first-trimester-screening">
+                  <label for="first-trimester-screening-reason">Reason</label>
+                  <input class="form-control" id="first-trimester-screening-reason" name="first-trimester-screening-reason">
                 </div>
                 <div class="form-group">
-                  <label for="conditions">Known medical conditions:</label>
-                  <textarea class="form-control" id="conditions" name="conditions"></textarea>
+                  <label for="anatomy-scan">Anatomy scan (18-22 weeks)</label>
+                  <input type="file" class="form-control" id="anatomy-scan" name="anatomy-scan">
+                  <label for="anatomy-scan-reason">Reason</label>
+                  <input class="form-control" id="anatomy-scan-reason" name="anatomy-scan-reason">
                 </div>
 
-                <div class="well">In case you have carried out test for known medical condition, please attach it.</div>
-                <div class="additional-info-upload row">
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label for="ferrin-test">Ferrin level</label>
-                    <input type="file" class="form-control" id="ferrin-test" name="ferrin-test">
-                  </div>
-                  <div class="form-group">
-                    <label for="b12-test">Vitamin B12 level</label>
-                    <input type="file" class="form-control" id="b12-test" name="b12-test">
-                  </div>
-                  <div class="form-group">
-                    <label for="folate-test">Folate level</label>
-                    <input type="file" class="form-control" id="folate-test" name="folate-test">
-                  </div>
-                  <div class="form-group">
-                    <label for="thyroid-test">Thyroid stimulating hormone (TSH)</label>
-                    <input type="file" class="form-control" id="thyroid-test" name="thyroid-test">
-                  </div>
+                <h3>Pathology Tests</h3>
+
+                <div class="form-group">
+                  <label for="dating-scan">Dating scan</label>
+                  <input type="file" class="form-control" id="dating-scan" name="dating-scan">
+                  <label for="dating-scan-reason">Reason</label>
+                  <input class="form-control" id="dating-scan-reason" name="dating-scan-reason">
                 </div>
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label for="haemoglobino-test">Haemoglobino path screening</label>
-                    <input type="file" class="form-control" id="haemoglobino-test" name="haemoglobino-test">
-                  </div>
-                  <div class="form-group">
-                    <label for="glucose-test">Glucose screening (HR patient)</label>
-                    <input type="file" class="form-control" id="glucose-test" name="glucose-test">
-                  </div>
-                  <div class="form-group">
-                    <label for="pap-smear-test">Pap smear</label>
-                    <input type="file" class="form-control" id="pap-smear-test" name="pap-smear-test">
-                  </div>
-                  <div class="form-group">
-                    <label for="gonorrhoea-test">Gonorrhoea</label>
-                    <input type="file" class="form-control" id="gonorrhoea-test" name="gonnorrhoea-test">
-                  </div>
-                  </div>
+                <div class="form-group">
+                  <label for="dating-scan">Dating scan</label>
+                  <input type="file" class="form-control" id="dating-scan" name="dating-scan">
+                  <label for="dating-scan-reason">Reason</label>
+                  <input class="form-control" id="dating-scan-reason" name="dating-scan-reason">
                 </div>
+                <div class="form-group">
+                  <label for="dating-scan">Dating scan</label>
+                  <input type="file" class="form-control" id="dating-scan" name="dating-scan">
+                  <label for="dating-scan-reason">Reason</label>
+                  <input class="form-control" id="dating-scan-reason" name="dating-scan-reason">
+                </div>
+                <div class="form-group">
+                  <label for="dating-scan">Dating scan</label>
+                  <input type="file" class="form-control" id="dating-scan" name="dating-scan">
+                  <label for="dating-scan-reason">Reason</label>
+                  <input class="form-control" id="dating-scan-reason" name="dating-scan-reason">
+                </div>
+                <div class="form-group">
+                  <label for="dating-scan">Dating scan</label>
+                  <input type="file" class="form-control" id="dating-scan" name="dating-scan">
+                  <label for="dating-scan-reason">Reason</label>
+                  <input class="form-control" id="dating-scan-reason" name="dating-scan-reason">
+                </div>
+                <div class="form-group">
+                  <label for="dating-scan">Dating scan</label>
+                  <input type="file" class="form-control" id="dating-scan" name="dating-scan">
+                  <label for="dating-scan-reason">Reason</label>
+                  <input class="form-control" id="dating-scan-reason" name="dating-scan-reason">
+                </div>
+                <div class="form-group">
+                  <label for="dating-scan">Dating scan</label>
+                  <input type="file" class="form-control" id="dating-scan" name="dating-scan">
+                  <label for="dating-scan-reason">Reason</label>
+                  <input class="form-control" id="dating-scan-reason" name="dating-scan-reason">
+                </div>
+                <div class="form-group">
+                  <label for="dating-scan">Dating scan</label>
+                  <input type="file" class="form-control" id="dating-scan" name="dating-scan">
+                  <label for="dating-scan-reason">Reason</label>
+                  <input class="form-control" id="dating-scan-reason" name="dating-scan-reason">
+                </div>
+                <div class="form-group">
+                  <label for="dating-scan">Dating scan</label>
+                  <input type="file" class="form-control" id="dating-scan" name="dating-scan">
+                  <label for="dating-scan-reason">Reason</label>
+                  <input class="form-control" id="dating-scan-reason" name="dating-scan-reason">
+                </div>
+                <div class="form-group">
+                  <label for="dating-scan">Dating scan</label>
+                  <input type="file" class="form-control" id="dating-scan" name="dating-scan">
+                  <label for="dating-scan-reason">Reason</label>
+                  <input class="form-control" id="dating-scan-reason" name="dating-scan-reason">
+                </div>
+
                 <button type="submit" class="btn btn-default">Back</button>
                 <button type="submit" class="btn btn-primary pull-right">Next</button>
               </div>
