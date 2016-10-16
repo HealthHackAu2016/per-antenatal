@@ -88,8 +88,8 @@
 										<input class="col-sm-6 form-control" name="Surname"  required type="text" id="Surname" placeholder="Jane">
 									</div>
 									<div class="form-group col-sm-4">
-										<label class="col-sm-5 text-right" for="Firstname">Fist name<span>*</span></label>
-										<input class="col-sm-6 form-control" name="Firstname" required type="text" id="Firstname" placeholder="Doe">
+										<label class="col-sm-5 text-right" for="first_name">Fist name<span>*</span></label>
+										<input class="col-sm-6 form-control" name="first_name" required type="text" id="first_name" placeholder="Doe">
 									</div>
 								</div>
 								<div class="row">
@@ -539,6 +539,13 @@
 
 
 $(function(){
+	var prefill_data = JSON.parse(fs.readFileSync('c:\\obst\\page1.txt', 'utf8')); //
+
+  $.each(prefill_data, function(k, v) {
+    $('#'+k).val(v);
+ });
+
+
 	 console.log( "ready!" );
 $('#LanguageRow').hide();
 

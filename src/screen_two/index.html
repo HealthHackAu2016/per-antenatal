@@ -131,11 +131,11 @@ require('bootstrap');
 $(function(){
   console.log( "prefilling..." );
 
-  var prefill_data = JSON.parse(fs.readFileSync('c:\\obst\\page2.txt', 'utf8')); //
+  //var prefill_data = JSON.parse(fs.readFileSync('c:\\obst\\page2.txt', 'utf8')); //
 
-  $.each(prefill_data, function(k, v) {
-    $('#'+k).val(v);
-  });
+  //$.each(prefill_data, function(k, v) {
+  //  $('#'+k).val(v);
+  //});
 
   console.log( "ready!" );
   $('#LanguageRow').hide();
