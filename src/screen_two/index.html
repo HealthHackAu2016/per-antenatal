@@ -69,8 +69,8 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="conditions">Known medical conditions:</label>
-                  <textarea class="form-control" id="conditions" name="conditions"></textarea>
+                  <label for="known_conditions">Known medical conditions:</label>
+                  <textarea class="form-control" id="known_conditions" name="known_conditions"></textarea>
                 </div>
 
                 <div class="well">In case you have carried out test for known medical condition, please attach it.</div>
@@ -129,6 +129,14 @@ var $ = jQuery;
 require('bootstrap');
 
 $(function(){
+  console.log( "prefilling..." );
+
+  var prefill_data = JSON.parse(fs.readFileSync('c:\\obst\\page2.txt', 'utf8')); //
+
+  $.each(prefill_data, function(k, v) {
+    $('#'+k).val(v);
+  });
+
   console.log( "ready!" );
   $('#LanguageRow').hide();
 
