@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<style>
+		.row {
+			padding: 8px;
+		}
+		
+		:required .control-label:after {
+			content: "*";
+			color: red;
+		}
+	</style>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Screen One</title>
+	<!-- STYLES -->
+	<!-- build:css lib/css/main.min.css -->
+	<!--<link rel="stylesheet" type="text/css" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">-->
+	<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../assets/wizard.css">
+	<!-- endbuild -->
+	<!-- SCRIPTS -->
+
+	<!-- Custom Scripts -->
+
+	<!--<script src="../../bower_components/jquery-1.9.1/index.js"></script>
+    <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>-->
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<section>
+				<div class="wizard">
+					<div class="wizard-inner">
+						<div class="connecting-line"></div>
+						<ul class="nav nav-tabs" role="tablist">
+
+							<li role="presentation" class="disabled">
+								<a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
+									<span class="round-tab">
+                                <i class="glyphicon glyphicon-folder-open"></i>
+                            </span>
+								</a>
+							</li>
+
+							<li role="presentation" class="disabled">
+								<a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
+									<span class="round-tab">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                            </span>
+								</a>
+							</li>
+							<li role="presentation" class="active">
+								<a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
+									<span class="round-tab">
+                                <i class="glyphicon glyphicon-picture"></i>
+                            </span>
+								</a>
+							</li>
+
+							<li role="presentation" class="disabled">
+								<a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+									<span class="round-tab">
+                                <i class="glyphicon glyphicon-ok"></i>
+                            </span>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<form class="form-inline" id="screen-one" action="" method="post" role="form">
+						<div class="tab-content">
+							<div class="tab-pane active" role="tabpanel" id="step1">
+								<h3>Obsteric Information</h3>
+								<p>Obsteric Information</p>
+								<ul class="list-inline pull-right">
+									<li><input type="submit" class="btn btn-primary next-step" value="Save and continue" /></li>
+								</ul>
+								<div class="clearfix"></div>
+								<div class=row>
+									<div class="form-group">
+										<label class="text-right" for="IsFirstPregnancy">Is this the patient's first pregnancy?</label>
+										<select name="IsFirstPregnancy" id="IsFirstPregnancy" class="form-control" required>
+                                        <option value="No">No</option>
+                                        <option selected value="Yes">Yes</option>
+                                        </select>
+									</div>
+								</div>
+								<div id="current-pregnancy">
+									<div class="well">
+										<h3>Current Pregnancy </h3>
+										<div class="row">
+											<div class="form-group">
+												<label class="text-right" for="Expecteddeliverydate">Expected delivery date</label>
+												<input name="Expecteddeliverydate" required type="date" class="form-control" id="Expecteddeliverydate" placeholder="dd/mm/yyyy">
+											</div>
+										</div>
+										<div class=row>
+											<div class="form-group">
+												<label class="text-right" for="Calculationmethod">Calculation Method<span>*</span></label>
+												<select name="Calculationmethod" id="Calculationmethod" class="form-control" required>
+                                                    <option selected value="" disabled>Choose here</option>
+                                                    <option value="Scan">Scan</option>
+                                                    <option value="LMP">Last Menstral Period</option>
+                                                </select>
+											</div>
+										</div>
+                                        <div class=row>
+											<div class="form-group">
+												<label class="text-right" for="Twins">Twins Pregnancy </label>
+												<select name="Twins" id="Twins" class="form-control" required>
+                                                    <option selected value="" disabled>Choose here</option>
+                                                    <option value="Yes">Yes</option>
+                                                    <option value="No">No</option>
+                                                </select>
+                                                
+											</div>
+										</div>
+                                        <div id="TwinTypeContainer" class=row>
+											    <div class="form-group">
+												<label class="text-right" for="TwinType">Types of Twins </label>
+												<select name="TwinType" id="TwinType" class="form-control" required>
+                                                    <option selected value="" disabled>Choose here</option>
+                                                    <option value="DCDA">DCDA</option>
+                                                    <option value="MCDA">MCDA</option>
+                                                    <option value="MCMA">MCMA</option>
+                                                </select>
+											</div>
+										</div>
+                
+									</div>
+								</div>
+							</div>
+						</div>
+				</div>
+				</form>
+		</div>
+		</section>
+	</div>
+	</div>
+
+</body>
+<script>
+
+	
+	var fs = require('fs'); // Load the File System to execute our common tasks (CRUD)
+ const jQuery = require('jquery');
+    var $ = jQuery;
+    require('bootstrap');
+
+
+$(function(){
+	 console.log( "ready!" );
+$('#current-pregnancy').show();
+
+	$('#IsFirstPregnancy').change(function(){
+		$('#current-pregnancy').hide();
+			if($('#IsFirstPregnancy').val() === 'Yes' ){
+				$('#current-pregnancy').show();
+			}
+	});
+
+   $('#TwinTypeContainer').hide();
+
+	$('#Twins').change(function(){
+		$('#TwinTypeContainer').hide();
+			if($('#Twins').val() === 'Yes' ){
+				$('#TwinTypeContainer').show();
+			}
+	});
+
+
+
+
+
+  $.fn.serializeObject = function()
+{
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
+
+function save(){
+    var fileName = "screen_one"; //TODO folder 
+		var content = JSON.stringify($('form').serializeObject());
+		 fs.writeFile(fileName, content, function (err) {
+			 
+           if(err){
+               alert("An error ocurred creating the file "+ err.message)
+           }
+                        
+           alert("The file has been succesfully saved");
+       });
+}
+
+function validation(){
+ return true;
+}
+
+
+    $('form').submit(function() {
+        
+		if(!validation()){
+			
+			console.log('error');
+
+		}
+		console.log('save');
+		save();
+		window.location = '../screen_two/index.html';
+        return false;
+    });
+
+
+});
+
+
+	
+
+    </script>
+
+</html>

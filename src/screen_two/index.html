@@ -189,12 +189,11 @@ function validation(){
     $('form').submit(function() {
         
     if(!validation()){
-      
       console.log('error');
-
     }
     console.log('save');
     save();
+    window.location = '../screen_three/index.html';
     
         return false;
     });
