@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Antenatal IRS - Physical Information</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/wizard.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <section>
+          <div class="wizard">
+            <div class="wizard-inner">
+              <div class="connecting-line"></div>
+              <ul class="nav nav-tabs" role="tablist">
+
+                <li role="presentation" class="disabled">
+                  <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
+                    <span class="round-tab">
+                                  <i class="glyphicon glyphicon-folder-open"></i>
+                              </span>
+                  </a>
+                </li>
+
+                <li role="presentation" class="active">
+                  <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
+                    <span class="round-tab">
+                                  <i class="glyphicon glyphicon-pencil"></i>
+                              </span>
+                  </a>
+                </li>
+                <li role="presentation" class="disabled">
+                  <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
+                    <span class="round-tab">
+                                  <i class="glyphicon glyphicon-picture"></i>
+                              </span>
+                  </a>
+                </li>
+
+                <li role="presentation" class="disabled">
+                  <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+                    <span class="round-tab">
+                                  <i class="glyphicon glyphicon-ok"></i>
+                              </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <form id="screen-two" action="" method="post" role="form">
+              <div class="panel-group panel-primary">
+              <div class="panel-heading">Physical Information</div>
+              <div class="panel-body">
+                <div class="form-group">
+                  THis is used ot calculate the patient's growth chart.
+                  <label for="height">Height:</label>
+                  <div class="input-group">
+                    <input type="number" class="form-control" id="height" name="height" required>
+                    <span class="input-group-addon">cm</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="weight">Pre-pregnancy Weight:</label>
+                  <div class="input-group">
+                    <input type="number" class="form-control" id="weight" name="weight" required>
+                    <span class="input-group-addon">kg</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="conditions">Known medical conditions:</label>
+                  <textarea class="form-control" id="conditions" name="conditions"></textarea>
+                </div>
+
+                <div class="additional-info-upload row">
+                  <div class="well">In case you have carried out test for known medical condition, please attach it.</div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="ferrin-test">Ferrin level</label>
+                    <input type="file" class="form-control" id="ferrin-test" name="ferrin-test">
+                  </div>
+                  <div class="form-group">
+                    <label for="b12-test">Vitamin B12 level</label>
+                    <input type="file" class="form-control" id="b12-test" name="b12-test">
+                  </div>
+                  <div class="form-group">
+                    <label for="folate-test">Folate level</label>
+                    <input type="file" class="form-control" id="folate-test" name="folate-test">
+                  </div>
+                  <div class="form-group">
+                    <label for="thyroid-test">Thyroid stimulating hormone (TSH)</label>
+                    <input type="file" class="form-control" id="thyroid-test" name="thyroid-test">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="haemoglobino-test">Haemoglobino path screening</label>
+                    <input type="file" class="form-control" id="haemoglobino-test" name="haemoglobino-test">
+                  </div>
+                  <div class="form-group">
+                    <label for="glucose-test">Glucose screening (HR patient)</label>
+                    <input type="file" class="form-control" id="glucose-test" name="glucose-test">
+                  </div>
+                  <div class="form-group">
+                    <label for="pap-smear-test">Pap smear</label>
+                    <input type="file" class="form-control" id="pap-smear-test" name="pap-smear-test">
+                  </div>
+                  <div class="form-group">
+                    <label for="gonorrhoea-test">Gonorrhoea</label>
+                    <input type="file" class="form-control" id="gonorrhoea-test" name="gonnorrhoea-test">
+                  </div>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-default">Back</button>
+                <button type="submit" class="btn btn-primary pull-right">Next</button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+
+  <script>var fs = require('fs'); // Load the File System to execute our common tasks (CRUD)
+ const jQuery = require('jquery');
+    var $ = jQuery;
+    require('bootstrap');
+
+
+$(function(){
+   console.log( "ready!" );
+$('#LanguageRow').hide();
+
+  $('#Interpreter').change(function(){
+    $('#LanguageRow').hide();
+      if($('#Interpreter').val() === 'Yes' ){
+        $('#LanguageRow').show();
+      }
+  });
+
+
+
+  $.fn.serializeObject = function()
+{
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
+
+function save(){
+    var fileName = "screen_two"; //TODO folder 
+
+    var fieldObject = $('form').serializeObject();
+
+    $('input:file').each(function() {
+      fieldObject[$(this).attr('name')] = $(this).val();
+    });
+
+    var content = JSON.stringify(fieldObject);
+    console.log(content);
+
+    return;
+     fs.writeFile(fileName, content, function (err) {
+       
+           if(err){
+               alert("An error ocurred creating the file "+ err.message)
+           }
+                        
+           alert("The file has been succesfully saved");
+       });
+}
+
+function validation(){
+ return true;
+}
+
+
+    $('form').submit(function() {
+        
+    if(!validation()){
+      
+      console.log('error');
+
+    }
+    console.log('save');
+    save();
+    
+        return false;
+    });
+
+
+});
+  </script>
+</html>
+
