@@ -59,20 +59,17 @@
                     </label>
                 </div>
             </div>
-            <button id="submit_screen0" type="button" onclick="pdf()" class="btn btn-primary pull-right">Next</button>
+            <button id="submit_screen0" type="button" onclick="next()" class="btn btn-primary pull-right">Next</button>
         </form>
     </div>
   </body>
   <script>
-      var electron = require('electron');
-      var fs = require('fs');
-      var contents = electron.remote.getCurrentWebContents();
+      var pdf = require(__dirname+'/../pdf.js');
+      var contents = require('electron').remote.getCurrentWebContents();
 
-      // save the current page to a pdf
-      var pdf = function() {
-          contents.printToPDF({}, function (err, data) {
-              fs.writeFile('screen0.pdf', data)
-          })
+      var next = function() {
+          pdf('screen0.pdf');
+          contents.loadURL(`file://${__dirname}/../screen_one/index.html`);
       }
   </script>
 </html>
