@@ -2,7 +2,7 @@
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
 
-const jquery = require('jQuery');
+const jquery = require('jquery');
 //const blobStream = require('blob-stream');
 const merge = require('easy-pdf-merge');
 const fs = require('fs');
@@ -34,12 +34,10 @@ var html = '<p>Hi <b style="color: red;"> there </b> </p> <p> test2 </p> <form><
 
 //merge
 merge(['/Users/schauhan/Downloads/bloodtest.pdf','/Users/schauhan/Downloads/patientdata.pdf'],'/Users/schauhan/Downloads/final.pdf',function(err){
- 
+
         if(err)
         return console.log(err);
- 
+
         console.log('Success');
- 
+
 });
-
-
