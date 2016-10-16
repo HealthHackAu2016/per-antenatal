@@ -1,5 +1,4 @@
 const electron = require('electron')
-const express = require('../src/app/express');
 // Module to control application life.
 const app = electron.app
 // Module to create native browser window.
@@ -10,13 +9,9 @@ const BrowserWindow = electron.BrowserWindow
 let mainWindow
 
 function createWindow () {
-  // Start express app
-  express.listen(3000, function () {console.log('Express ready.')})
   // Create the browser window.
   mainWindow = new BrowserWindow({width: 800, height: 600})
-
   // and load the index.html of the app.
-  //mainWindow.loadURL(`http://localhost:3000/page-0`)
   mainWindow.loadURL(`file://${__dirname}/index.html`)
 
   // Open the DevTools.
