@@ -15,13 +15,13 @@
      </div>
 
       <div class="row">
-         <button style="background-color:white;border-color:white;color:black;font-size:30px;margin-top:220px;"  class=" col-sm-2 col-sm-offset-5 btn btn-success">Start</button>
+         <button id="start" style="background-color:white;border-color:white;color:black;font-size:30px;margin-top:220px;"  class=" col-sm-2 col-sm-offset-5 btn btn-success">Start</button>
        </div>
 
 
 
-  
-    
+
+
     <button class='make_pdf'>Click me</button>
     <h2>Screens</h2>
     <ul>
@@ -37,14 +37,17 @@
     and Electron <script>document.write(process.versions.electron)</script>.
 
    </div>
-   
-   
+
+
   </body>
 
   <script>
     // You can also require other files to run in this process
-    require('./renderer.js')
-
+    // require('./renderer.js')
+    var electron = require('electron').remote
+    $('#start').click(function () {
+        electron.getCurrentWebContents().loadURL(`file://${__dirname}/screen_zero/index.html`)
+    })
 
   </script>
 </html>
