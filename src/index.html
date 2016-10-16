@@ -15,12 +15,12 @@
      </div>
 
       <div class="row">
-      
-         <a  href="screen_three/index.html" style="background-color:white;border-color:white;color:black;font-size:30px;margin-top:220px;"  class="text-center col-sm-2 col-sm-offset-5 btn btn-success"/>Start</a>
+
+         <button id="start" style="background-color:white;border-color:white;color:black;font-size:30px;margin-top:220px;"  class=" col-sm-2 col-sm-offset-5 btn btn-success">Start</button>
        </div>
 
-<div class="row">
-  <p class="col-sm-6 col-sm-offset-3 pull-right"  style="font-size:9x;color:white;margin-top:100px;">
+
+<p>
     <!-- All of the Node.js APIs are available in this renderer process. -->
     We are using node <script>document.write(process.versions.node)</script>,
     Chromium <script>document.write(process.versions.chrome)</script>,
@@ -28,15 +28,17 @@
   </p>
 
    </div>
-
  </div>   
-   
+
   </body>
 
   <script>
     // You can also require other files to run in this process
-    require('./renderer.js')
-    
+    // require('./renderer.js')
+    var electron = require('electron').remote
+    $('#start').click(function () {
+        electron.getCurrentWebContents().loadURL(`file://${__dirname}/screen_zero/index.html`)
+    })
 
   </script>
 </html>
