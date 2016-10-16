@@ -122,15 +122,15 @@
     </div>
   </body>
 
-  <script>var fs = require('fs'); // Load the File System to execute our common tasks (CRUD)
- const jQuery = require('jquery');
-    var $ = jQuery;
-    require('bootstrap');
-
+  <script>
+var fs = require('fs'); // Load the File System to execute our common tasks (CRUD)
+const jQuery = require('jquery');
+var $ = jQuery;
+require('bootstrap');
 
 $(function(){
-   console.log( "ready!" );
-$('#LanguageRow').hide();
+  console.log( "ready!" );
+  $('#LanguageRow').hide();
 
   $('#Interpreter').change(function(){
     $('#LanguageRow').hide();
@@ -139,10 +139,7 @@ $('#LanguageRow').hide();
       }
   });
 
-
-
-  $.fn.serializeObject = function()
-{
+  $.fn.serializeObject = function() {
     var o = {};
     var a = this.serializeArray();
     $.each(a, function() {
@@ -156,49 +153,45 @@ $('#LanguageRow').hide();
         }
     });
     return o;
-};
+  };
 
-function save(){
+  function save(){
     var fileName = "screen_two"; //TODO folder 
-
     var fieldObject = $('form').serializeObject();
 
     $('input:file').each(function() {
-      fieldObject[$(this).attr('name')] = $(this).val();
+      if ($(this).val()) {
+        var rd = fs.createReadStream(this.files[0].path);
+        var wr = fs.createWriteStream('tmp_files/'+$(this).attr('name')+'.pdf');
+        rd.pipe(wr);
+        fieldObject[$(this).attr('name')] = 'tmp_files/'+$(this).attr('name')+'.pdf';
+      } else {
+        fieldObject[$(this).attr('name')] = '';
+      }
     });
 
     var content = JSON.stringify(fieldObject);
-    console.log(content);
 
-    return;
-     fs.writeFile(fileName, content, function (err) {
-       
-           if(err){
-               alert("An error ocurred creating the file "+ err.message)
-           }
-                        
-           alert("The file has been succesfully saved");
-       });
-}
+    fs.writeFile(fileName, content, function (err) {
+      if(err) {
+        alert("An error ocurred creating the file "+ err.message)
+      }        
+      alert("The file has been succesfully saved");
+    });
+  }
 
-function validation(){
- return true;
-}
+  function validation(){
+    return true;
+  }
 
-
-    $('form').submit(function() {
-        
+  $('form').submit(function(e) {
     if(!validation()){
-      
       console.log('error');
-
     }
     console.log('save');
     save();
-    
-        return false;
-    });
-
+    return false;
+  });
 
 });
   </script>
