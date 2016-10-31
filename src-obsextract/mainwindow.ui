@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>580</width>
+    <height>373</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>OBS Extract</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QFormLayout" name="formLayout">
+    <item row="0" column="0" colspan="2">
+     <widget class="QLabel" name="label">
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Obstretic Extractor</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>First Name</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QLineEdit" name="edtFirstName"/>
+    </item>
+    <item row="7" column="0">
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>Last Name:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="1">
+     <widget class="QLineEdit" name="edtLastName"/>
+    </item>
+    <item row="9" column="0">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>DOB</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="1">
+     <widget class="QDateEdit" name="dateEditDOB">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="minimumDateTime">
+       <datetime>
+        <hour>0</hour>
+        <minute>0</minute>
+        <second>0</second>
+        <year>1900</year>
+        <month>1</month>
+        <day>1</day>
+       </datetime>
+      </property>
+      <property name="maximumDate">
+       <date>
+        <year>2200</year>
+        <month>12</month>
+        <day>31</day>
+       </date>
+      </property>
+      <property name="displayFormat">
+       <string>dd/MM/yyyy</string>
+      </property>
+      <property name="calendarPopup">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="1">
+     <widget class="QCheckBox" name="chkDobUnknown">
+      <property name="text">
+       <string>I don't know the patients DOB</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="11" column="0">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>Medicare No:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="11" column="1">
+     <widget class="QLineEdit" name="edtMedicareNo"/>
+    </item>
+    <item row="13" column="0">
+     <widget class="QLabel" name="label_8">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="13" column="1">
+     <widget class="QPushButton" name="btnFind">
+      <property name="text">
+       <string>Find</string>
+      </property>
+     </widget>
+    </item>
+    <item row="16" column="0" colspan="2">
+     <widget class="QTableView" name="tblviewSearchResults">
+      <property name="sizeAdjustPolicy">
+       <enum>QAbstractScrollArea::AdjustToContents</enum>
+      </property>
+      <property name="showDropIndicator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="alternatingRowColors">
+       <bool>true</bool>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::SingleSelection</enum>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+      <attribute name="horizontalHeaderMinimumSectionSize">
+       <number>100</number>
+      </attribute>
+     </widget>
+    </item>
+    <item row="17" column="1">
+     <widget class="QPushButton" name="btnGenerateForms">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>Generate Forms</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
